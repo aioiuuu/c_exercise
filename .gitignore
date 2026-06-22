@@ -1,0 +1,28 @@
+# 构建目录
+cmake-build-*/
+out/
+build/
+
+# IDE 配置
+.idea/
+
+# 编译产物
+*.exe
+*.o
+*.obj
+*.out
+*.dll
+*.so
+*.dylib
+
+# CMake 生成文件
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+build.ninja
+compile_commands.json
+Makefile
+
+# 调试文件
+*.pdb
+*.dSYM/
