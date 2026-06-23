@@ -2,11 +2,11 @@
 
 
 // 数组的定义格式
-// int main() {
-//     int age[80];
-//     double height[50];
-//     double price[80];
-// }
+int main() {
+    int age[80];
+    double height[50];
+    double price[80];
+}
 
 // 数组的初始化
 // int main() {
@@ -199,18 +199,18 @@
 // }
 
 //简洁版反转数组
-int main() {
-    int arr[]={1,2,3,4,5};
-    int len=sizeof(arr)/sizeof(arr[0]);
-    int i=0;
-    int j=len-1;
-    while(i<j) {
-        int temp=arr[i];
-        arr[i]=arr[j];
-        arr[j]=temp;
-        i++,j--;
-    }
-    for(int i=0;i<len;i++) {
-        printf("%d ",arr[i]);
-    }
-}
+// int main() {
+//     int arr[]={1,2,3,4,5};
+//     int len=sizeof(arr)/sizeof(arr[0]);
+//     int i=0;
+//     int j=len-1;
+//     while(i<j) {
+//         int temp=arr[i];
+//         arr[i]=arr[j];
+//         arr[j]=temp;
+//         i++,j--;
+//     }
+//     for(int i=0;i<len;i++) {
+//         printf("%d ",arr[i]);
+//     }
+// }
