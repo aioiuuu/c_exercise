@@ -12,4 +12,5 @@ add_executable(untitled
         "Data Strictures and Algorithms/array.c"
         "Data Strictures and Algorithms/loop_control.c"
         "Data Strictures and Algorithms/Common algorithms for arrays.c"
+        "Data Strictures and Algorithms/pointer.c"
 )
