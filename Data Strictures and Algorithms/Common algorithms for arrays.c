@@ -1,5 +1,7 @@
 #include <stdio.h>
+
 //基本查找
+
 int order(int arr[], int len,int num);
 int main() {
     int arr[]={11,22,55,77,44};
