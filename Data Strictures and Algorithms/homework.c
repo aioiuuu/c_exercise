@@ -384,4 +384,106 @@ int main() {
 // }
 
 
+//编写函数对数组中的数据进行冒泡排序
+// void sort(int a[], int n) {
+//     int i,j;
+//     for (i=1;i<n;i++) {
+//         for (j=0;j<n-i;j++) {
+//             if (a[j]>a[j+1]) {
+//                 int temp=a[j];
+//                 a[j]=a[j+1];
+//                 a[j+1]=temp;
+//             }
+//         }
+//     }
+// }
+//
+// int main() {
+//     int arr[5]={1,7,2,3,5};
+//     sort(arr,5);
+//     for (int i=0;i<5;i++) {
+//         printf("%d ",arr[i]);
+//     }
+// }
+
+
+//功能：统计数组中数字的平均数，最大数，以及最大数的个数
+// int max = 0;
+// int k = 0;
+// float fun(int arr[], int n) {
+//     int i;
+//
+//     float sum = 0;
+//     float average = 0;
+//     //遍历计算数字之和
+//     for (i=0;i<n;i++) {
+//         sum = sum + arr[i];
+//     }
+//     average = sum/n;
+//     //遍历得到数组的最大值
+//     for (i=0;i<n;i++) {
+//         if (arr[i]>max) {
+//             max = arr[i];
+//         }
+//     }
+//     //统计最大值的个数
+//     for (i=0;i<n;i++) {
+//         if (arr[i]==max) {
+//             k++;
+//         }
+//     }
+//     return average;
+// }
+//
+// int main() {
+//     int arr[10] = {1,2,3,4,5,6,7,8,9,10};
+//     float ave =fun(arr, 10);
+//     printf("The average is %.2f\n",ave);
+//     printf("max=%d\n",max);
+//     printf("num=%d\n",k);
+// }
+
+
+//遍历一个N*N数组周边元素并求其平均值
+// #define N 5
+// double fun (int w[N][N]) {
+//     int i,j;
+//     double sum=0;
+//     double ave=0;
+//     for (i=0;i<N;i++) {
+//         for (j=0;j<N;j++) {
+//             if (i==0 || j==0 || i==N-1 || j==N-1) {
+//                 sum+=w[i][j];
+//             }
+//         }
+//     }
+//     ave=sum/(4*N-4);
+//     return ave;
+// }
+// int main() {
+//     int w[N][N]={0,1,2,7,9,1,9,7,4,5,2,3,8,3,1,4,5,6,8,2,5,9,1,4,1};
+//     double ave=fun(w);
+//     printf("%f",ave);
+// }
+
+
+
+
+//编写一个函数，其功能是将字符串的内容逆置
+// void fun(char *str,int n) {
+//     int i;
+//     for (i=0;i<n/2;i++) {
+//         int temp=str[i];
+//         str[i]=str[n-1-i];
+//         str[n-1-i]=temp;
+//     }
+// }
+// int main() {
+//     char str[100];
+//     gets(str);
+//     fun(str,strlen(str));
+//     for (int i=0;i<strlen(str);i++) {
+//         printf("%c",str[i]);
+//     }
+// }
 

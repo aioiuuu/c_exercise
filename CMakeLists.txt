@@ -15,4 +15,5 @@ add_executable(untitled
         "Data Strictures and Algorithms/pointer.c"
         "Data Strictures and Algorithms/homework.c"
         "Data Strictures and Algorithms/string.c"
+        c_examination/assessment.c
 )
