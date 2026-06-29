@@ -302,13 +302,179 @@
 
 //对算法时间复杂度的度量，通常只讨论算法在最坏情况下的时间复杂度
 //即分析在最坏情况下，算法执行时间的上界
+//n是描述问题规模的非负整数
 
-
+//todo:常数阶
 // for (int i=0;i<10000;i++) {
 //     x++;
 //     s=0;
 // }
 // T(n)=o(1);
+
+
+//todo:对数阶
+// for (int i=1;i<n;i=i*2)
+// {
+//     x++;
+//     s=0;
+// }
+
+
+//todo:根号阶
+// int fun(int n) {
+//     int i=0,sum=0;
+//     while (sum<n) {
+//         sum+=++i;
+//         return sum;
+//     }
+// }
+
+
+//todo:线性阶
+// int main() {
+//     for (int i=1;i<n;i*=2) {
+//         for (int j=0;j<i;j++) {
+//             sum++;
+//         }
+//     }
+// }
+
+//todo:线性对数阶
+// int x = 0;
+// for (int i=1;i<=n;i++) {
+//     int j=1;
+//     while (j<=n) {
+//         x++;
+//         j*=2;
+//     }
+// }
+
+
+
+//todo：空间复杂度
+//空间复杂度主要用来描述某个算法对应的程序想在计算机上执行
+//除了用来存储代码和输入数据的内存空间外，还需要额外的空间
+
+
+
+//todo:线性表
+//由n个数据特性相同的元素构成的有限序列，称为线性表
+//除第一个元素外，结构中的每一个数据元素均有一个前驱
+//除最后一个元素外，结构中的每一个元素均有一个后继
+
+
+//todo:顺序表
+//用一组连续的内存单元依次存储线性表的各个元素
+//也就是说，逻辑上相邻的元素，实际的物理存储空间也是连续的
+
+
+#define MAXSIZE 100
+typedef int ElemType;
+
+// typedef struct {
+//     ElemType data[MAXSIZE];
+//     int length;
+// }SeqList;
+
+
+// //初始化顺序表
+// void InitList(SeqList *L) {
+//     L->length = 0;
+// }
+
+// //在顺序表尾部添加元素
+// int appendElem(SeqList* L, ElemType e) {
+//     if (L->length >= MAXSIZE) {
+//         {
+//             printf("full");
+//             return 0;
+//         }
+//     }
+//     L->data[L->length] = e;
+//     L->length++;
+//     return 1;
+// }
+
+// //顺序表的遍历
+// void PrintList(SeqList* L) {
+//     for (int i=0;i<L->length;i++) {
+//         printf("%d ",L->data[i]);
+//     }
+//     printf("\n");
+// }
+
+// //插入元素
+// int insertElem(SeqList* L, int pos, ElemType e) {
+//     if (pos<=L->length) {
+//         for (int i=L->length-1;i>=pos-1;i--) {
+//             L->data[i+1] = L->data[i];
+//         }
+//         L->data[pos-1] = e;
+//         L->length++;
+//     }
+//     return 1;
+// }
+
+// //删除元素
+// int deleteElem(SeqList* L,int pos,ElemType* e) {
+//     *e = L->data[pos-1];
+//     if (pos<L->length) {
+//         for (int i=pos-1;i<L->length;i++) {
+//             L->data[i]=L->data[i+1];
+//         }
+//     }
+//     L->length--;
+//     return 1;
+// }
+
+// //顺序表-查找
+// int findElem(SeqList* L,ElemType e) {
+//     for (int i=0;i<L->length;i++) {
+//         if (L->data[i]==e) {
+//             return i+1;
+//         }
+//     }
+//     return 0;
+// }
+
+// //测试代码
+// int main() {
+//     SeqList L;
+//     InitList(&L);
+//     printf("%d\n",L.length);
+//     printf("%zu\n",sizeof(L.data));
+//     printf("\n");
+//     appendElem(&L,88);
+//     appendElem(&L,66);
+//     appendElem(&L,17);
+//     appendElem(&L,33);
+//     PrintList(&L);
+//     insertElem(&L,1,12);
+//     PrintList(&L);
+//     ElemType delData;
+//     deleteElem(&L,2,&delData);
+//     printf("delete number is %d\n",delData);
+//     PrintList(&L);
+//     printf("position is %d\n",findElem(&L,66));
+//     return 0;
+// }
+
+
+
+typedef struct {
+    ElemType *data;
+    int length;
+};
+
+
+
+
+
+
+
+
+
+
 
 
 
