@@ -460,24 +460,78 @@ typedef int ElemType;
 // }
 
 
+//todo:顺序表--动态内存地址初始化
+//顺序表结构体定义
+//SeqList* L里存的是表头结构体的内存地址
+//这个表头就代表整个顺序表，它只装两个成员，data指针，length计数
+//data是表头内部的指针变量，里面存的是专门存放元素的连续数组的首地址
+//这块内存才是真正存数据的地方
 
-typedef struct {
-    ElemType *data;
-    int length;
-};
-
-
-
-
-
-
-
+//直接定义数组只是单纯存数据
+//封装成sqlist是完整的数据结构对象，自带长度信息，方便统一管理
+//函数操作，动态分配内存，是数据结构的标准规范写法
 
 
+// typedef struct {
+//     ElemType* data;
+//     int length;
+// }SeqList;
+//
+// //初始化函数
+// SeqList* initList()
+// {   //在堆内存开辟一块SqlList表头空间，把新表头的地址赋值给函数局部形参变量L
+//     SeqList* L = (SeqList*)malloc(sizeof(SeqList));
+//     //在堆内存开辟MAXSIZE个元素大小的数组空间，将数组首地址存入表头的data地址
+//     L->data = (ElemType*)malloc(sizeof(ElemType)*MAXSIZE);
+//     //初始化当前有效元素个数为0，代表空表
+//     L->length = 0;
+//     return L;
+// }
+
+
+//todo:顺序表是以连续数组作为底层存储载体，再额外封装有效长度，管理逻辑的线性数据结构
+//todo:节点包括两个域，其中存储数据元素信息的称为数据域，
+//todo:存储后继存储位置有域称为指针域
+
+//todo:链表
+
+
+typedef struct node {
+    ElemType data;
+    struct node* next;
+}Node;
+
+//todo:初始化链表
+Node* initList()
+{
+    Node* head = (Node*)malloc(sizeof(Node));
+    head->data = 0;
+    head->next = NULL;
+    return head;
+}
+
+//todo:单链表-头插法
+int insertHead(Node* L, ElemType e) {
+    Node* p=(Node*)malloc(sizeof(Node));
+    p->data = e;
+    p->next = L->next;
+    L->next = p;
+}
 
 
 
 
+
+
+
+
+
+int main() {
+    Node* list = initList();
+
+
+    return 1;
+}
 
 
 
