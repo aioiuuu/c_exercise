@@ -518,7 +518,14 @@ int insertHead(Node* L, ElemType e) {
     L->next = p;
 }
 
-
+void ListNode(Node* L){
+    Node* p = L->next;
+    while(p!=NULL){
+        printf("%d\n",p->data);
+        p = p->next;
+    }
+    printf("\n");
+}
 
 
 
