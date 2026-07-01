@@ -377,12 +377,12 @@ typedef int ElemType;
 // }SeqList;
 
 
-// //初始化顺序表
+// //todo:初始化顺序表
 // void InitList(SeqList *L) {
 //     L->length = 0;
 // }
 
-// //在顺序表尾部添加元素
+// //todo:在顺序表尾部添加元素
 // int appendElem(SeqList* L, ElemType e) {
 //     if (L->length >= MAXSIZE) {
 //         {
@@ -395,7 +395,7 @@ typedef int ElemType;
 //     return 1;
 // }
 
-// //顺序表的遍历
+// //todo:顺序表的遍历
 // void PrintList(SeqList* L) {
 //     for (int i=0;i<L->length;i++) {
 //         printf("%d ",L->data[i]);
@@ -403,7 +403,7 @@ typedef int ElemType;
 //     printf("\n");
 // }
 
-// //插入元素
+// //todo:插入元素
 // int insertElem(SeqList* L, int pos, ElemType e) {
 //     if (pos<=L->length) {
 //         for (int i=L->length-1;i>=pos-1;i--) {
@@ -415,7 +415,7 @@ typedef int ElemType;
 //     return 1;
 // }
 
-// //删除元素
+// //todo:删除元素
 // int deleteElem(SeqList* L,int pos,ElemType* e) {
 //     *e = L->data[pos-1];
 //     if (pos<L->length) {
@@ -427,7 +427,7 @@ typedef int ElemType;
 //     return 1;
 // }
 
-// //顺序表-查找
+// //todo:顺序表-查找
 // int findElem(SeqList* L,ElemType e) {
 //     for (int i=0;i<L->length;i++) {
 //         if (L->data[i]==e) {
@@ -437,7 +437,7 @@ typedef int ElemType;
 //     return 0;
 // }
 
-// //测试代码
+// //todo:测试代码
 // int main() {
 //     SeqList L;
 //     InitList(&L);
@@ -477,7 +477,7 @@ typedef int ElemType;
 //     int length;
 // }SeqList;
 //
-// //初始化函数
+// //todo:初始化函数
 // SeqList* initList()
 // {   //在堆内存开辟一块SqlList表头空间，把新表头的地址赋值给函数局部形参变量L
 //     SeqList* L = (SeqList*)malloc(sizeof(SeqList));
@@ -495,48 +495,74 @@ typedef int ElemType;
 
 //todo:链表
 
-
 typedef struct node {
     ElemType data;
     struct node* next;
 }Node;
 
 //todo:初始化链表
-Node* initList()
-{
+Node* initList() {
     Node* head = (Node*)malloc(sizeof(Node));
-    head->data = 0;
     head->next = NULL;
+    head->data = 0;
     return head;
 }
 
-//todo:单链表-头插法
-int insertHead(Node* L, ElemType e) {
-    Node* p=(Node*)malloc(sizeof(Node));
-    p->data = e;
-    p->next = L->next;
-    L->next = p;
+//todo:头插法
+void insertHead(Node* L,ElemType x) {
+    Node* temp = (Node*)malloc(sizeof(Node));
+    temp->data = x;
+    temp->next = L->next;
+    L->next = temp;
 }
 
-void ListNode(Node* L){
-    Node* p = L->next;
-    while(p!=NULL){
-        printf("%d\n",p->data);
+//todo:尾插法
+//遍历得到尾节点指针
+Node* get_tail(Node* L) {
+    Node* p = L;
+    while (p->next != NULL) {
         p = p->next;
+    }
+    return p;
+}
+
+//插入节点
+Node* insertTail(Node* tail,ElemType e) {
+    Node* p = (Node*)malloc(sizeof(Node));
+    p->data = e;
+    tail->next = p;
+    p->next = NULL;
+    return p;
+}
+
+
+
+//todo：遍历链表
+void ListNode(Node* L) {
+    Node* temp = L->next;
+    while (temp!=NULL) {
+        printf("%d ",temp->data);
+        temp = temp->next;
     }
     printf("\n");
 }
 
+//todo:在指定位置插入数据
+int insert_location(Node* L,int pos,ElemType e) {
+    Node* p = L;
+    int i = 0;
+    while (i<pos-1) {
+        p = p->next;
+        i++;
+        if (p == NULL) {
+            return 0;
+        }
+    }
 
-
-
-
-
-
-int main() {
-    Node* list = initList();
-
-
+    Node* q = (Node*)malloc(sizeof(Node));
+    q->data = e;
+    q->next = p->next;
+    p->next = q;
     return 1;
 }
 
@@ -546,10 +572,19 @@ int main() {
 
 
 
-
-
-
-
-
+//todo:测试函数
+int main() {
+    Node* list = initList();
+    insertHead(list,10);
+    insertHead(list,20);
+    insertHead(list,30);
+    ListNode(list);
+    Node* tail = get_tail(list);
+    tail = insertTail(tail,40);
+    tail = insertTail(tail,50);
+    tail = insertTail(tail,60);
+    ListNode(list);
+    return 0;
+}
 
 

@@ -10,6 +10,9 @@
                 "UNICODE",
                 "_UNICODE"
             ],
+            "compilerPath": "gcc",
+            "cStandard": "c99",
+            "intelliSenseMode": "windows-gcc-x64",
             "compileCommands": [
                 "${workspaceFolder}/cmake-build-debug/compile_commands.json"
             ]
