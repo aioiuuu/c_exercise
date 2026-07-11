@@ -526,7 +526,7 @@ Node* get_tail(Node* L) {
     return p;
 }
 
-//插入节点
+//todo:插入节点
 Node* insertTail(Node* tail,ElemType e) {
     Node* p = (Node*)malloc(sizeof(Node));
     p->data = e;
@@ -534,8 +534,6 @@ Node* insertTail(Node* tail,ElemType e) {
     p->next = NULL;
     return p;
 }
-
-
 
 //todo：遍历链表
 void ListNode(Node* L) {
@@ -548,7 +546,7 @@ void ListNode(Node* L) {
 }
 
 //todo:在指定位置插入数据
-int insert_location(Node* L,int pos,ElemType e) {
+int insertNode(Node* L,int pos,ElemType e) {
     Node* p = L;
     int i = 0;
     while (i<pos-1) {
@@ -563,14 +561,175 @@ int insert_location(Node* L,int pos,ElemType e) {
     q->data = e;
     q->next = p->next;
     p->next = q;
+}
+
+//todo:删除指定位置节点
+int deleteNode(Node* L,int pos) {
+   Node* p = L;
+    int i = 0;
+    while (i<pos-1) {
+        p = p->next;
+        i++;
+        if (p == NULL) {
+            return 0;
+        }
+    }
+
+    if (p->next == NULL) {
+        printf("position is wrong\n");
+        return 0;
+    }
+    Node* q = p->next;
+    p->next = q->next;
+    free(q);
     return 1;
+}
+
+//todo:单链表-获取长度
+int listLength(Node* L) {
+    //头节点不存有效业务数据
+    Node* p = L;
+    int len = 0;
+    while (p!=NULL) {
+        p = p->next;
+        len++;
+    }
+    return len;
+}
+
+//todo:释放链表
+//指针p指向头节点后的第一个节点
+//判断指针p是否指向空节点
+//如果p不为空，用指针q指向p的后继节点
+//释放指针p指向的节点
+//指针p和指针q指向同一个节点，循环上面的操作
+
+void freeList(Node* L) {
+    Node* p = L->next;
+    Node* q;
+    while (p!=NULL) {
+        q = p->next;
+        free(p);
+        p = q;
+    }
+    L->next = NULL;
+}
+
+//todo:使用双指针找到倒数第k个节点
+//这是经典快慢指针找倒数第k个节点：快指针先走k步，再快慢同速前进
+//快走到末尾慢指针正好指向倒数第k分指针
+int findNodeFS(Node* L,ElemType K) {
+    Node* fast = L->next;
+    Node* slow = L->next;
+    for (int i = 0;i<K;i++) {
+        fast = fast->next;
+    }
+    while (fast!=NULL) {
+        fast = fast->next;
+        slow = slow->next;
+    }
+    printf("node value is %d\n",slow->data);
 }
 
 
 
+//todo:初始化节点（带节点数据域参数）
+Node* initListWithElem(ElemType e) {
+    Node* node = (Node*)malloc(sizeof(Node));
+    node->data = e;
+    node->next = NULL;
+    return node;
+}
 
+//todo:尾插法（节点）
+Node* insertTailWithNode(Node* tail,Node* node) {
+    if (tail == NULL) {
+        tail = node;
+    }
+    tail->next = node;
+    Node* p = node;
+    while (p->next != NULL) {
+        p = p->next;
+    }
+    return p;
+}
 
+//todo:快慢指针找到两组链表的共同节点
+Node* findIntersectionNode(Node* headA,Node* headB) {
+    if (headA==NULL || headB==NULL) {
+        return NULL;
+    }
 
+    Node* p = headA;
+    int lenA = 0;
+    int lenB = 0;
+
+    //遍历链表A，获取链表A的长度
+    while (p!=NULL) {
+        p = p->next;
+        lenA++;
+    }
+    //遍历链表B,获取链表B的长度
+    p = headB;
+    while (p!=NULL) {
+        p = p->next;
+        lenB++;
+    }
+
+    Node* fast;//快指针
+    Node* slow;//慢指针
+    int step;
+    if (lenA>lenB) {
+        step = lenA-lenB;
+        fast = headA;
+        slow = headB;
+    }
+    else {
+        step = lenB-lenA;
+        fast = headB;
+        slow = headA;
+    }
+    for (int i = 0;i<step;i++) {
+        fast = fast->next;
+    }
+    while (fast!=slow) {
+        fast = fast->next;
+        slow = slow->next;
+    }
+    return fast;
+}
+
+void ListCharNode(Node* L) {
+    Node* temp = L->next;
+    while (temp!=NULL) {
+        printf("%c",temp->data);
+        temp = temp->next;
+    }
+    printf("\n");
+}
+
+//todo:拿空间换时间，删除绝对值相同的节点
+void removeNode(Node* L,int n) {
+    Node* p = L;
+    int index;
+    int *q = (int*)malloc(sizeof(int)*(n+1));
+    for (int i = 0;i<n+1;i++) {
+        *(q+i) = 0;
+    }
+    while (p->next != NULL) {
+        index = abs(p->next->data);
+        if (*(q+index)==0) {
+            *(q+index) = 1;
+            p = p->next;
+        }
+        else {
+            Node* temp = p->next;
+            p->next = temp->next;
+            free(temp);
+        }
+    }
+    free(q);
+}
 
 //todo:测试函数
 int main() {
@@ -583,6 +742,44 @@ int main() {
     tail = insertTail(tail,40);
     tail = insertTail(tail,50);
     tail = insertTail(tail,60);
+    ListNode(list);
+    insertNode(list,2,15);
+    ListNode(list);
+    deleteNode(list,2);
+    ListNode(list);
+    printf("%d\n",listLength(list));
+    findNodeFS(list,2);
+    freeList(list);
+    printf("%d\n",listLength(list));
+    Node* listA = initList();
+    Node* listB = initList();
+    Node* tailA = get_tail(listA);
+    Node* tailB = get_tail(listB);
+    Node* nodeI = initListWithElem('i');
+    Node* nodeN = initListWithElem('n');
+    Node* nodeG = initListWithElem('g');
+    nodeI->next = nodeN;
+    nodeN->next = nodeG;
+    nodeG->next = NULL;
+    tailA = insertTail(tailA,'l');
+    tailA = insertTail(tailA,'o');
+    tailA = insertTail(tailA,'a');
+    tailA = insertTail(tailA,'d');
+    tailA = insertTailWithNode(tailA,nodeI);
+    tailB = insertTail(tailB,'b');
+    tailB = insertTail(tailB,'e');
+    // 同一条公共链接到B尾部（实现图里共享结构）
+    tailB = insertTailWithNode(tailB,nodeI);
+    ListCharNode(listA);
+    ListCharNode(listB);
+    printf("%c\n",findIntersectionNode(listA,listB)->data);
+    tail = insertTail(tail,21);
+    tail = insertTail(tail,-15);
+    tail = insertTail(tail,-15);
+    tail = insertTail(tail,7);
+    tail = insertTail(tail,15);
+    ListNode(list);
+    removeNode(list,21);
     ListNode(list);
     return 0;
 }
