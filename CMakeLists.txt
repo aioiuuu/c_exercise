@@ -17,4 +17,6 @@ add_executable(untitled
         "Data Strictures and Algorithms/string.c"
         c_examination/assessment.c
         Data_strictures/structure.c
+        Data_strictures/linked_list.c
+        Data_strictures/Singly_Circular_Linked_List.c
 )
