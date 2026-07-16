@@ -19,4 +19,5 @@ add_executable(untitled
         Data_strictures/structure.c
         Data_strictures/linked_list.c
         Data_strictures/Singly_Circular_Linked_List.c
+        Data_strictures/Stack_And_Queue.c
 )
