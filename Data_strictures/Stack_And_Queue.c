@@ -229,6 +229,21 @@ int getHead(Queue* Q, ElemType* e) {
     }
 }
 
+// //todo:动态内存分配
+// typedef struct {
+//     ElemType* data;
+//     int front;
+//     int rear;
+// }Queue;
+//
+// Queue* initQueue() {
+//     Queue* Q = (Queue*)malloc(sizeof(Queue));
+//     Q->data = (ElemType*)malloc(sizeof(ElemType)*MAXSIZE);
+//     Q->front = 0;
+//     Q->rear = 0;
+//     return Q;
+// }
+
 //todo:测试代码
 int main() {
     Queue q;
@@ -246,18 +261,3 @@ int main() {
     printf("%d\n",e);
     return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
