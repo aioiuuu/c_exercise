@@ -21,4 +21,6 @@ add_executable(untitled
         Data_strictures/Singly_Circular_Linked_List.c
         Data_strictures/Stack_And_Queue.c
         Data_strictures/circular_queue.c
+        Data_strictures/enumeration.c
+        Tree_And_Binary-Tree/Tree.c
 )
