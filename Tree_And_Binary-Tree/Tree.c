@@ -12,3 +12,40 @@
 //todo:树中所有结点数等于所有结点的度数之和加1
 
 //todo:对于度为m的树，第i层上最多有m**(i-1)个结点
+
+//todo:对于高度为h，度为m的树，最多有(m**h-1)/(m-1)个结点
+
+
+
+//todo:二叉树
+//性质1：二叉树的第i层最多有2**(i-1)个结点
+
+//性质2：深度为k的二叉树最多有2**(k-1)个结点(等比数列求和)
+
+//性质3：对于任何非空的二叉树T,如果叶子结点的个数为n0，而度为2的结点数为n2,则n0=n2+1
+
+
+//todo:完全二叉树
+//没有左子树，不能有右子树，上一层没有铺满，不能有下一层
+
+//对于二叉树来说，叶子结点在最后两层
+
+
+//todo:二叉树的存储结构-链式结构
+typedef char ElemType;
+
+typedef struct TreeNode {
+    ElemType data;
+    TreeNode* lchild;
+    TreeNode* rchild;
+}TreeNode;
+
+typedef TreeNode* BiTree;
+
+
+//todo:前序遍历
+
+
+
+
+
