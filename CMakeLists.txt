@@ -23,4 +23,5 @@ add_executable(untitled
         Data_strictures/circular_queue.c
         Data_strictures/enumeration.c
         Tree_And_Binary-Tree/Tree.c
+        "Tree_And_Binary-Tree/Huffman Tree.c"
 )
