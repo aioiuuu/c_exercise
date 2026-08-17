@@ -24,4 +24,5 @@ add_executable(untitled
         Data_strictures/enumeration.c
         Tree_And_Binary-Tree/Tree.c
         "Tree_And_Binary-Tree/Huffman Tree.c"
+        Graph/Depth-First-Search_Breadth-First-Search.c
 )
