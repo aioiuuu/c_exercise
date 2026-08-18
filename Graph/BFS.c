@@ -1,11 +1,8 @@
 //
-// Created by q_wr2 on 2026/8/17.
+// Created by q_wr2 on 2026/8/18.
 //
 
-#include <stdio.h>
-
-//Vertex 顶点
-//Edge   边
+#include<stdio.h>
 
 typedef char VertexType;
 typedef int EdgeType;
@@ -13,17 +10,16 @@ typedef int EdgeType;
 #define MAXSIZE 100
 
 typedef struct {
-    //一个用来保存顶点的一维数组
     VertexType vertex[MAXSIZE];
-    //一个用来保存边的二维数组
     EdgeType arc[MAXSIZE][MAXSIZE];
-    //顶点的数量
     int vertex_num;
-    //边的数量
     int edge_num;
 }Mat_Graph;
 
 int visited[MAXSIZE];
+int front = 0;
+int rear = 0;
+int queue[MAXSIZE];
 
 void create_graph(Mat_Graph* G) {
     G->vertex_num = 9;
@@ -43,7 +39,7 @@ void create_graph(Mat_Graph* G) {
             G->arc[i][j] = 0;
         }
     }
-
+    
     //A-B A-F
     G->arc[0][1] = 1;
     G->arc[0][5] = 1;
@@ -81,19 +77,24 @@ void create_graph(Mat_Graph* G) {
     }
 }
 
-
-//深度优先(DFS)
-void dfs(Mat_Graph G, int i) {
+void bfs(Mat_Graph G) {
+    int i = 0;
     visited[i] = 1;
     printf("%c\n",G.vertex[i]);
-
-    for (int j = 0; j < G.vertex_num; j++) {
-        if (G.arc[i][j] == 1 && visited[j] == 0) {
-            dfs(G,j);
+    queue[rear] = i;
+    rear++;
+    while (front != rear) {
+        i = queue[front];
+        front++;
+        for (int j = 0; j < G.vertex_num; j++) {
+            if (G.arc[i][j] == 1 && visited[j] == 0) {
+                visited[j] = 1;
+                printf("%c\n",G.vertex[j]);
+                rear++;
+            }
         }
     }
 }
-
 
 int main(int argc, char const *argv[]) {
     //申明结构体变量
@@ -104,6 +105,6 @@ int main(int argc, char const *argv[]) {
     for (int i = 0; i < G.vertex_num; i++) {
         visited[i] = 0;
     }
-    dfs(G,0);
+    bfs(G);
     return 0;
 }

@@ -25,4 +25,6 @@ add_executable(untitled
         Tree_And_Binary-Tree/Tree.c
         "Tree_And_Binary-Tree/Huffman Tree.c"
         Graph/Depth-First-Search_Breadth-First-Search.c
+        Graph/BFS.c
+        Graph/Minimum-Spanning-Tree.c
 )
