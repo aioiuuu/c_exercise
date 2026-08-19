@@ -27,4 +27,5 @@ add_executable(untitled
         Graph/Depth-First-Search_Breadth-First-Search.c
         Graph/BFS.c
         Graph/Minimum-Spanning-Tree.c
+        Graph/Kruskal.c
 )
