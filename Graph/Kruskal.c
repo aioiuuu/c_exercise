@@ -88,6 +88,13 @@ void create_graph(Mat_Graph* G) {
     }
 }
 
+int find(int *parent, int index) {
+    while (parent[index] > 0) {
+        index = parent[index];
+    }
+    return index;
+}
+
 void Kruskal(Mat_Graph G) {
     Edge edges[MAXEDGE];
     int k = 0;
@@ -104,8 +111,23 @@ void Kruskal(Mat_Graph G) {
     sortEdges(edges,G.edge_num);
 
     int parent[MAXSIZE];
+
+    for (int i=0;i<G.vertex_num;i++) {
+        parent[i] = 0;
+    }
+
+    int n,m;
+    for (int i=0;i<G.edge_num;i++) {
+        n = find(parent,edges[i].begin);
+        m = find(parent,edges[i].end);
+
+        if (n!=m) {
+            parent[n] = m;
+            printf("(%d,%d) %d\n",edges[i].begin,edges[i].end,edges[i].weight);
+        }
+    }
 }
-void sortEdge
+
 int main(int argc, char const *argv[]) {
     Mat_Graph G;
     create_graph(&G);

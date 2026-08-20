@@ -28,4 +28,6 @@ add_executable(untitled
         Graph/BFS.c
         Graph/Minimum-Spanning-Tree.c
         Graph/Kruskal.c
+        Graph/Dijkstra.c
+        Graph/Floyd.c
 )
