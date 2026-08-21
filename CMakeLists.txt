@@ -30,4 +30,6 @@ add_executable(untitled
         Graph/Kruskal.c
         Graph/Dijkstra.c
         Graph/Floyd.c
+        "Graph/Topological sort.c"
+        Graph/Critical-Path.c
 )
