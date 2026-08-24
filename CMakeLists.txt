@@ -32,4 +32,5 @@ add_executable(untitled
         Graph/Floyd.c
         "Graph/Topological sort.c"
         Graph/Critical-Path.c
+        Search/Binary-Search-Tree.c
 )
