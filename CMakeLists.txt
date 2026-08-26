@@ -33,4 +33,5 @@ add_executable(untitled
         "Graph/Topological sort.c"
         Graph/Critical-Path.c
         Search/Binary-Search-Tree.c
+        "Search/Balanced Tree.c"
 )
