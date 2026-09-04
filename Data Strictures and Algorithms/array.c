@@ -6,6 +6,7 @@ int main() {
     int age[80];
     double height[50];
     double price[80];
+    return 0;
 }
 
 // 数组的初始化

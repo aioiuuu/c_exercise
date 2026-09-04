@@ -10,6 +10,7 @@ int main() {
     *p=200;
     printf("%d\n",*p);
     printf("%d\n",a);
+    return 0;
 }
 
 //指针的数据类型和指向变量的数据类型要保持一致

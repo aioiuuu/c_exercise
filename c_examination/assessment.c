@@ -15,13 +15,16 @@
 
 int main() {
     int i;
-    double sum=0;
-    int sign=1;
-    for (i=1;i<100;i+=2) {
-        sum+=sign*1.0/i;
-        sign=-sign;
+    double sum = 0;
+    for (i = 1; i < 100; i += 2) {
+        if ((i / 2) % 2 == 0) {
+            sum += 1.0 / i;
+        } else {
+            sum -= 1.0 / i;
+        }
     }
-    printf("%f",sum);
+    printf("%.2f\n", sum);
+    return 0;
 }
 
 //todo:输出所有的水仙花数

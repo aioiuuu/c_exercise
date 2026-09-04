@@ -18,16 +18,35 @@ int main () {
 
     //细节3：
     //字符数组+双引号的方式定义字符串，内容是可以发生变化的
-    str1[0]='Q';
-    printf("%s\n",str1);
-
-    //利用指针+双引号的方式定义字符串
-    char* str2="abcd";
-    printf("%s\n",str2);
-    //利用指针+双引号的方式定义字符串，会把底层的字符串放在只读常量区
-    // str2[0]='Q';(错误)
-    printf("%s\n",str2);
+    return 0;
 }
+
+//需求：键盘录入一个字符串，使用程序在控制台遍历该字符串；
+// int main () {
+//     char str[100];
+//     scanf("%s", str);
+//     char* p = str;
+//     while (*p!='\0') {
+//         printf("%c\n", *p);
+//         p++;
+//     }
+//     return 0;
+// }
+
+// int main() {
+//     char strarr[5][100]=
+//     {
+//         "zhangsan",
+//         "lisi",
+//         "wangwu",
+//         "qinai1",
+//         "zhaoliu"
+//     };
+//     for (int i=0;i<5;i++) {
+//         char* str=strarr[i];
+//         printf("%s\n",str);
+//     }
+// }
 
 
 

@@ -160,6 +160,7 @@ int main() {
     printf("%d\n",e);
     dequeue(q,&e);
     printf("%d\n",e);
+    return 0;
 }
 
 //为解决计算机主机与打印机之间速度不匹配的问题
