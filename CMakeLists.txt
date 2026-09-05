@@ -35,4 +35,7 @@ add_executable(untitled
         Search/Binary-Search-Tree.c
         "Search/Balanced Tree.c"
         c_examination/complex.c
+        "Sequential_List/SeqList.c"
+        "Sequential_List/SeqList-02.c"
+        "Linked_List/Singly Linked List.c"
 )
