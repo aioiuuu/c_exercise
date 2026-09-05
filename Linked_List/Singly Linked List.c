@@ -122,6 +122,71 @@ void freeList(Node* L) {
     L->next = NULL;
 }
 
+
+//单链表-查找倒数第k个节点
+int findNodeFS(Node *L, int k) {
+    Node* fast = L->next;
+    Node* slow = L->next;
+
+    for (int i = 0;i<k;i++) {
+        fast = fast->next;
+    }
+    while (fast != NULL) {
+        fast = fast->next;
+        slow = slow->next;
+    }
+    printf("the 2-th node from the end is %d\n",slow->data);
+    return 1;
+}
+
+//查找两个相交链表的第一个相交节点
+
+//1.分别求出两个链表的长度m,n
+//2.fast指针指向较长的链表,先走m-n或n-m步
+//3.同步移动指针，判断他们是否指向同一个节点
+
+Node* findInsertsectionNode(Node* headA,Node* headB) {
+    if (headA == NULL || headB == NULL) {
+        return NULL;
+    }
+
+    Node* p = headA;
+    int lenA = 0;
+    int lenB = 0;
+
+    while (p != NULL) {
+        p = p->next;
+        lenA++;
+    }
+    p = headB;
+    while (p != NULL) {
+        p = p->next;
+        lenB++;
+    }
+
+    Node *m;//快指针
+    Node *n;//慢指针
+    int step;
+    if (lenA > lenB) {
+        step = lenA - lenB;
+        m = headA;
+        n = headB;
+    }
+    else {
+        step = lenB - lenA;
+        m = headB;
+        n = headA;
+    }
+    for (int i = 0;i<step;i++) {
+        m = m->next;
+    }
+    while (m != n) {
+        m = m->next;
+        n = n->next;
+    }
+    return m;
+}
+
 int main() {
     Node* list = initList();
     insertHead(list,10);
@@ -137,8 +202,9 @@ int main() {
     listNode(list);
     deleteNode(list,2);
     listNode(list);
-    printf("%d\n",listLength(list));
+    findNodeFS(list,2);
+    printf("the length is %d\n",listLength(list));
     freeList(list);
-    printf("%d\n",listLength(list));
+    printf("the length is %d\n",listLength(list));
     return 0;
 }
